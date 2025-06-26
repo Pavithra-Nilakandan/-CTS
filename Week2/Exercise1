@@ -1,1 +1,88 @@
-#PL SQL PROGRAMMING
+ PL/SQL Assignment: CONTROL STRUCTURES
+-- Java FSE - CTS Nurture 4.0 | Week 2
+
+-- 1. IF-THEN-ELSE: Check if number is positive, negative, or zero
+DECLARE
+    num NUMBER := &num;
+BEGIN
+    IF num > 0 THEN
+        DBMS_OUTPUT.PUT_LINE('The number is Positive');
+    ELSIF num < 0 THEN
+        DBMS_OUTPUT.PUT_LINE('The number is Negative');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('The number is Zero');
+    END IF;
+END;
+/
+
+-- 2. SIMPLE LOOP with EXIT: Print numbers 1 to 5
+DECLARE
+    i NUMBER := 1;
+BEGIN
+    LOOP
+        EXIT WHEN i > 5;
+        DBMS_OUTPUT.PUT_LINE('Number: ' || i);
+        i := i + 1;
+    END LOOP;
+END;
+/
+
+-- 3. WHILE LOOP: Find the sum of first 10 natural numbers
+DECLARE
+    i NUMBER := 1;
+    sum NUMBER := 0;
+BEGIN
+    WHILE i <= 10 LOOP
+        sum := sum + i;
+        i := i + 1;
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Sum = ' || sum);
+END;
+/
+
+-- 4. FOR LOOP: Print squares of numbers from 1 to 5
+BEGIN
+    FOR i IN 1..5 LOOP
+        DBMS_OUTPUT.PUT_LINE('Square of ' || i || ' is ' || i*i);
+    END LOOP;
+END;
+/
+
+-- 5. Nested IF inside FOR LOOP: Display even and odd numbers
+BEGIN
+    FOR i IN 1..10 LOOP
+        IF MOD(i, 2) = 0 THEN
+            DBMS_OUTPUT.PUT_LINE(i || ' is Even');
+        ELSE
+            DBMS_OUTPUT.PUT_LINE(i || ' is Odd');
+        END IF;
+    END LOOP;
+END;
+/
+
+-- 6. EXIT WHEN inside LOOP: Find factorial of a number
+DECLARE
+    num NUMBER := &num;
+    i NUMBER := 1;
+    fact NUMBER := 1;
+BEGIN
+    LOOP
+        EXIT WHEN i > num;
+        fact := fact * i;
+        i := i + 1;
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Factorial of ' || num || ' is ' || fact);
+END;
+/
+
+-- 7. Nested LOOP: Multiplication table for 1 to 5
+BEGIN
+    FOR i IN 1..5 LOOP
+        DBMS_OUTPUT.PUT_LINE('Table of ' || i);
+        FOR j IN 1..10 LOOP
+            DBMS_OUTPUT.PUT_LINE(i || ' * ' || j || ' = ' || i*j);
+        END LOOP;
+        DBMS_OUTPUT.PUT_LINE('------------------');
+    END LOOP;
+END;
+/
